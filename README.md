@@ -46,11 +46,14 @@ The dataset consists of pairs of tasks and their corresponding sequences of sub-
         Place the `glove.6B.100d.txt` file in the root directory of your project.
 
 
-4. Run the script:
+4. Run the script for training:
     ```bash
-    python task_to_subaction.py
+    python task_to_subaction_training.py
     ```
-
+5. Run the script for prediction:
+   ```bash
+   python task_to_subaction_prediction.py
+   
 ## Training
 The model is trained using the task embeddings as input and the sub-action sequences as output. The training process can be customized by modifying the parameters in the script.
 
