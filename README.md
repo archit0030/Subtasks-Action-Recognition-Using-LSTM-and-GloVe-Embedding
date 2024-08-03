@@ -35,8 +35,8 @@ The dataset consists of pairs of tasks and their corresponding sequences of sub-
 ## Usage
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your_username/task-subaction-prediction.git
-    cd task-subaction-prediction
+    git clone https://github.com/archit0030/Subtasks-Action-Recognition-Using-LSTM-and-GloVe-Embedding.git
+    cd Subtasks-Action-Recognition-Using-LSTM-and-GloVe-Embedding
     ```
 
 2. Download the GloVe embeddings and place the `glove.6B.100d.txt` file in the root directory.
