@@ -39,9 +39,14 @@ The dataset consists of pairs of tasks and their corresponding sequences of sub-
     cd Subtasks-Action-Recognition-Using-LSTM-and-GloVe-Embedding
     ```
 
-2. Download the GloVe embeddings and place the `glove.6B.100d.txt` file in the root directory.
 
-3. Run the script:
+
+2. Download the GloVe embeddings from [this link](https://www.kaggle.com/datasets/danielwillgeorge/glove6b100dtxt).
+
+        Place the `glove.6B.100d.txt` file in the root directory of your project.
+
+
+4. Run the script:
     ```bash
     python task_to_subaction.py
     ```
