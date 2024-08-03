@@ -56,4 +56,4 @@ After training, you can use the model to predict sub-actions for new tasks. Simp
 The model can successfully predict sequences of sub-actions for tasks similar to those in the training set. The predictions can be used to guide robotic systems in performing complex tasks.
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0 License. See the [LICENSE](LICENSE) file for details.
