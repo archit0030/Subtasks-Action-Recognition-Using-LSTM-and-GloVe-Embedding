@@ -1,9 +1,7 @@
 import tensorflow as tf
 from collections import Counter
 import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
 from task_config import *
-
 
 # Verify consistent sample sizes
 assert len(tasks) == len(sub_action_sequences), "Mismatch between number of tasks and sub-action sequences."
@@ -44,7 +42,7 @@ padded_sub_action_sequences = tf.keras.utils.to_categorical(padded_sub_action_se
 # Verify consistent sample sizes again
 assert task_embeddings.shape[0] == padded_sub_action_sequences.shape[0], "Mismatch between number of samples in embeddings and sub-action sequences."
 
-# 2. Model Creation
+# Model Creation
 model = tf.keras.Sequential([
     tf.keras.layers.Input(shape=(embedding_dim,)),
     tf.keras.layers.RepeatVector(10),  # Repeat the input to match the sequence length of 10
@@ -52,17 +50,9 @@ model = tf.keras.Sequential([
     tf.keras.layers.TimeDistributed(tf.keras.layers.Dense(len(sub_actions), activation='softmax'))
 ])
 
-# 3. Training
+# Training
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 model.fit(task_embeddings, padded_sub_action_sequences, epochs=100)
 
-# 4. Prediction
-new_task = "give me the he glass of water first pour the water from the bottle"
-new_task_embedding = get_task_embeddings([new_task])
-prediction = model.predict(new_task_embedding)
-print(prediction)
-
-# Interpret the prediction
-predicted_sub_action_indices = np.argmax(prediction, axis=-1)
-predicted_sub_actions = [sub_actions[idx] for idx in predicted_sub_action_indices[0]]
-print("Predicted Sub-Actions:", predicted_sub_actions)
+# Save the trained model
+model.save('task_model.h5')
